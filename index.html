@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rohan Patil — Data Analyst focused on business analytics, finance and risk analytics. Explore projects in Power BI, Python, SQL, customer analytics and credit risk.">
+  <meta name="theme-color" content="#101827">
+  <title>Rohan Patil | Data Analyst Portfolio</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --ink: #172235;
+      --muted: #617087;
+      --line: #e2e8f0;
+      --navy: #101827;
+      --navy-2: #17243a;
+      --blue: #4169e1;
+      --blue-dark: #2f50bd;
+      --teal: #0e9384;
+      --pale-blue: #eaf0ff;
+      --pale-teal: #e5f7f3;
+      --radius: 20px;
+      --shadow: 0 18px 50px rgba(20, 35, 60, .08);
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+    .skip-link { position: absolute; top: -60px; left: 16px; z-index: 1000; padding: 10px 14px; background: #fff; color: #111; border-radius: 8px; }
+    .skip-link:focus { top: 12px; }
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(16, 24, 39, .95); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #fff; font-weight: 750; letter-spacing: -.02em; }
+    .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; color: #fff; background: linear-gradient(135deg, #6687f2, #2e4db7); font-size: 13px; letter-spacing: .04em; }
+    .nav-links { display: flex; align-items: center; gap: 27px; color: #c9d3e2; font-size: 13px; font-weight: 600; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: #fff; }
+    .nav-links .nav-contact { color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 9px 15px; }
+    .menu-toggle { display: none; border: 1px solid rgba(255,255,255,.22); color: #fff; background: transparent; border-radius: 10px; padding: 8px 12px; cursor: pointer; }
+    .hero { position: relative; overflow: hidden; background: var(--navy); color: #fff; padding: 94px 0 84px; }
+    .hero::before, .hero::after { content: ""; position: absolute; pointer-events: none; border-radius: 50%; filter: blur(1px); }
+    .hero::before { width: 530px; height: 530px; right: -100px; top: -260px; background: radial-gradient(circle, rgba(65,105,225,.25), transparent 70%); }
+    .hero::after { width: 440px; height: 440px; left: 35%; bottom: -370px; background: radial-gradient(circle, rgba(14,147,132,.17), transparent 70%); }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.18fr .82fr; gap: 60px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #9fb5ff; font-size: 12px; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: #7c98ff; }
+    h1 { margin: 20px 0 14px; font-size: clamp(42px, 5.4vw, 68px); line-height: 1.06; letter-spacing: -.055em; font-weight: 780; }
+    .hero h1 span { color: #91a8ff; }
+    .hero-subtitle { margin: 0; color: #d7dfec; font-size: clamp(17px, 2vw, 21px); font-weight: 550; }
+    .hero-copy { max-width: 660px; margin: 22px 0 0; color: #aebbd0; font-size: 16px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 31px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 11px; padding: 12px 18px; font-size: 13px; font-weight: 750; border: 1px solid transparent; transition: transform .18s ease, background .18s ease, border-color .18s ease; cursor: pointer; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: #fff; background: var(--blue); }
+    .btn-primary:hover { background: var(--blue-dark); }
+    .btn-ghost { color: #fff; border-color: rgba(255,255,255,.24); background: rgba(255,255,255,.04); }
+    .btn-ghost:hover { background: rgba(255,255,255,.1); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; color: #aebbd0; font-size: 12px; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-meta svg { width: 15px; height: 15px; color: #91a8ff; }
+    .profile-panel { position: relative; padding: 28px; border: 1px solid rgba(255,255,255,.13); border-radius: 24px; background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.035)); box-shadow: 0 24px 70px rgba(0,0,0,.15); }
+    .panel-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: #b9c7db; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; font-weight: 750; }
+    .status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: #54d5b8; box-shadow: 0 0 0 4px rgba(84,213,184,.12); }
+    .profile-initials { width: 76px; height: 76px; display: grid; place-items: center; margin: 28px 0 18px; border-radius: 22px; background: linear-gradient(145deg, #6c8af1, #344da9); color: white; font-size: 24px; font-weight: 800; letter-spacing: -.04em; box-shadow: 0 12px 30px rgba(65,105,225,.24); }
+    .profile-panel h2 { margin: 0; font-size: 23px; letter-spacing: -.035em; }
+    .profile-panel p { color: #aebbd0; margin: 8px 0 22px; font-size: 13px; }
+    .focus-list { display: grid; gap: 10px; }
+    .focus-item { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 11px 13px; background: rgba(8,15,27,.28); border: 1px solid rgba(255,255,255,.07); border-radius: 11px; font-size: 12px; color: #dce4f1; }
+    .focus-item span:last-child { color: #8fa6ff; font-weight: 700; }
+    .section { padding: 84px 0; }
+    .section-white { background: var(--surface); }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 32px; }
+    .section-kicker { color: var(--blue); text-transform: uppercase; letter-spacing: .15em; font-size: 11px; font-weight: 800; margin-bottom: 8px; }
+    h2.section-title { margin: 0; font-size: clamp(29px, 3.4vw, 40px); letter-spacing: -.045em; line-height: 1.15; }
+    .section-intro { max-width: 590px; color: var(--muted); margin: 12px 0 0; font-size: 14px; }
+    .section-note { max-width: 250px; color: var(--muted); font-size: 12px; }
+    .about-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; }
+    .about-card, .skills-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; }
+    .about-card p { color: var(--muted); margin: 0 0 14px; font-size: 14px; }
+    .about-card p:last-child { margin-bottom: 0; }
+    .availability { display: flex; gap: 10px; align-items: flex-start; margin-top: 24px; padding: 14px 16px; border-radius: 12px; background: var(--pale-teal); color: #17675e; font-size: 12px; font-weight: 700; }
+    .availability svg { width: 17px; height: 17px; flex-shrink: 0; margin-top: 1px; }
+    .skills-card h3, .about-card h3 { margin: 0 0 19px; font-size: 17px; letter-spacing: -.02em; }
+    .skill-group + .skill-group { margin-top: 20px; }
+    .skill-label { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 9px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { border: 1px solid #e1e7f0; border-radius: 8px; padding: 6px 10px; color: #34445d; background: #f8faff; font-size: 11px; font-weight: 650; }
+    .project-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .filter-btn { padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font-size: 11px; font-weight: 750; cursor: pointer; }
+    .filter-btn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .project-card { min-width: 0; overflow: hidden; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; box-shadow: 0 8px 28px rgba(20,35,60,.035); transition: transform .2s ease, box-shadow .2s ease; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .project-card[hidden] { display: none; }
+    .project-visual { min-height: 192px; position: relative; overflow: hidden; padding: 22px; background: #111d31; color: white; }
+    .project-visual.visual-teal { background: linear-gradient(135deg, #102b3a, #135f65); }
+    .project-visual.visual-violet { background: linear-gradient(135deg, #201c42, #4c438f); }
+    .project-visual.visual-blue { background: linear-gradient(135deg, #122844, #315e9e); }
+    .visual-caption { position: relative; z-index: 2; color: rgba(255,255,255,.72); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; font-weight: 800; }
+    .visual-title { position: relative; z-index: 2; max-width: 330px; margin-top: 10px; font-size: 22px; line-height: 1.18; letter-spacing: -.04em; font-weight: 750; }
+    .visual-metrics { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .visual-metric { padding: 7px 10px; border-radius: 8px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.11); font-size: 10px; color: #e6edfa; }
+    .chart-decoration { position: absolute; right: 18px; bottom: 0; width: 43%; height: 112px; display: flex; align-items: end; gap: 7px; opacity: .45; transform: skewY(-5deg); }
+    .chart-decoration span { flex: 1; min-width: 7px; background: linear-gradient(180deg, #9bb0ff, rgba(115,151,245,.08)); border-radius: 5px 5px 0 0; }
+    .chart-decoration span:nth-child(1) { height: 28%; }
+    .chart-decoration span:nth-child(2) { height: 42%; }
+    .chart-decoration span:nth-child(3) { height: 35%; }
+    .chart-decoration span:nth-child(4) { height: 60%; }
+    .chart-decoration span:nth-child(5) { height: 51%; }
+    .chart-decoration span:nth-child(6) { height: 78%; }
+    .chart-decoration span:nth-child(7) { height: 93%; }
+    .project-body { padding: 24px; }
+    .project-topline { display: flex; justify-content: space-between; gap: 14px; align-items: center; margin-bottom: 10px; }
+    .project-number { color: #8290a6; font-size: 11px; font-weight: 800; letter-spacing: .1em; }
+    .project-domain { padding: 5px 8px; border-radius: 7px; background: var(--pale-blue); color: #3553b3; font-size: 10px; font-weight: 800; }
+    .project-body h3 { margin: 0; font-size: 21px; letter-spacing: -.035em; line-height: 1.25; }
+    .project-problem { margin: 11px 0 16px; color: var(--muted); font-size: 13px; }
+    .tool-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 19px; }
+    .tool { font-size: 10px; color: #52637c; background: #f3f6fa; padding: 5px 8px; border-radius: 6px; font-weight: 700; }
+    .finding-box { border-left: 3px solid var(--teal); padding: 12px 14px; background: #f3faf8; border-radius: 0 10px 10px 0; margin: 0 0 17px; }
+    .finding-label { color: #14786d; font-size: 10px; font-weight: 850; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 5px; }
+    .finding-box p { color: #344d58; font-size: 12px; line-height: 1.6; margin: 0; }
+    .project-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+    .text-link { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 800; color: var(--blue-dark); padding: 8px 0; }
+    .text-link:hover { color: #182f87; text-decoration: underline; text-underline-offset: 3px; }
+    .text-link svg { width: 14px; height: 14px; }
+    .recommendation { color: var(--muted); font-size: 12px; margin: 14px 0 0; }
+    .credentials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .credential-card { padding: 26px; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; }
+    .credential-card h3 { margin: 0 0 17px; font-size: 17px; letter-spacing: -.025em; }
+    .credential-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; padding: 14px 0; border-top: 1px solid #edf0f5; }
+    .credential-item:first-of-type { border-top: 0; padding-top: 0; }
+    .credential-name { font-size: 12px; line-height: 1.5; font-weight: 750; }
+    .credential-issuer { display: block; color: var(--muted); font-size: 11px; margin-top: 3px; font-weight: 500; }
+    .credential-link { flex-shrink: 0; color: var(--blue-dark); font-size: 10px; font-weight: 800; padding-top: 2px; }
+    .credential-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .credential-note { color: var(--muted); font-size: 11px; margin: 17px 0 0; }
+    .contact-section { background: var(--navy); color: #fff; padding: 72px 0; }
+    .contact-inner { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+    .contact-section .section-kicker { color: #91a8ff; }
+    .contact-section h2 { margin: 0; font-size: clamp(30px, 4vw, 43px); letter-spacing: -.045em; line-height: 1.15; }
+    .contact-section p { color: #aebbd0; max-width: 610px; font-size: 14px; margin: 15px 0 0; }
+    .contact-actions { display: flex; flex-direction: column; gap: 10px; min-width: 190px; }
+    .contact-actions .btn { width: 100%; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 26px; }
+    .contact-links a { color: #d7dfec; font-size: 12px; font-weight: 650; }
+    .contact-links a:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+    footer { background: #0b1220; color: #8794a8; padding: 20px 0; font-size: 11px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .back-top { color: #c8d3e4; }
+    .back-top:hover { color: #fff; }
+    :focus-visible { outline: 3px solid #8fa6ff; outline-offset: 3px; }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr .8fr; gap: 30px; }
+      .profile-panel { padding: 22px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .section-note { display: none; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 32px, var(--max)); }
+      .nav { min-height: 66px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 65px; left: 0; right: 0; padding: 18px 22px 22px; background: #101827; border-bottom: 1px solid rgba(255,255,255,.12); flex-direction: column; align-items: stretch; gap: 4px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 10px 4px; }
+      .nav-links .nav-contact { text-align: center; margin-top: 6px; }
+      .hero { padding: 65px 0 56px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero h1 { font-size: clamp(42px, 12vw, 60px); }
+      .profile-panel { max-width: 500px; }
+      .section { padding: 62px 0; }
+      .section-heading { display: block; margin-bottom: 24px; }
+      .project-grid, .credentials-grid { grid-template-columns: 1fr; }
+      .project-visual { min-height: 176px; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .contact-actions { flex-direction: row; flex-wrap: wrap; }
+      .contact-actions .btn { width: auto; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Rohan Patil home">
+        <span class="brand-mark">RP</span>
+        <span>Rohan Patil</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a class="nav-contact" href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Data Analytics Portfolio</div>
+          <h1>Rohan<br><span>Patil.</span></h1>
+          <p class="hero-subtitle">Data Analyst | Python, SQL, Power BI | Business and Risk Analytics</p>
+          <p class="hero-copy">I turn raw data into clear findings and practical business recommendations. My work spans data preparation, SQL analysis, exploratory analysis, dashboard development, customer analytics and credit risk.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Explore Projects <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="mailto:rohanrajendrapatil2005@gmail.com">Contact Me</a>
+          </div>
+          <div class="hero-meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg>Kolhapur, Maharashtra</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 9h18"/></svg>Expected graduation: 2026–27</span>
+          </div>
+        </div>
+        <aside class="profile-panel" aria-label="Professional profile summary">
+          <div class="panel-top"><span>Professional Profile</span><span><i class="status-dot"></i>Open to opportunities</span></div>
+          <div class="profile-initials" aria-hidden="true">RP</div>
+          <h2>Analysis with business context.</h2>
+          <p>Final-year student at Shivaji University, Kolhapur, developing practical analytical skills through end-to-end projects.</p>
+          <div class="focus-list">
+            <div class="focus-item"><span>Business Analytics</span><span>01</span></div>
+            <div class="focus-item"><span>Customer Analytics</span><span>02</span></div>
+            <div class="focus-item"><span>Credit & Risk Analysis</span><span>03</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-white" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Profile</div>
+            <h2 class="section-title">About me</h2>
+            <p class="section-intro">A practical, project-led approach to data analysis, with a growing focus on finance and risk analytics.</p>
+          </div>
+          <div class="section-note">Turning analysis into clear findings and actionable recommendations.</div>
+        </div>
+        <div class="about-grid">
+          <article class="about-card">
+            <h3>My approach</h3>
+            <p>I am an aspiring Data Analyst with a growing focus on finance and risk analytics. My projects cover the full analytics cycle: cleaning and transforming data with Python (Pandas), querying it with SQL, performing exploratory analysis, and presenting results in Power BI dashboards.</p>
+            <p>I have completed job simulations in banking and finance (Citi, Goldman Sachs) and in data visualization (Tata), along with coursework in risk management and principles of finance.</p>
+            <div class="availability">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg>
+              <span>Open to Data Analyst, Business Analyst, and Financial or Risk Analyst internships and entry-level roles.</span>
+            </div>
+          </article>
+          <article class="skills-card" id="skills">
+            <h3>Skills & tools</h3>
+            <div class="skill-group">
+              <div class="skill-label">Programming and data analysis</div>
+              <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">NumPy</span></div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-label">BI and visualization</div>
+              <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">Excel</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span></div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-label">Data analysis</div>
+              <div class="tags"><span class="tag">Data Cleaning</span><span class="tag">EDA</span><span class="tag">KPI Analysis</span><span class="tag">Feature Engineering</span><span class="tag">Reporting</span></div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-label">Databases and tools</div>
+              <div class="tags"><span class="tag">MySQL</span><span class="tag">SQLite</span><span class="tag">Jupyter Notebook</span><span class="tag">Git</span><span class="tag">GitHub</span></div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-label">Professional skills</div>
+              <div class="tags"><span class="tag">Analytical Thinking</span><span class="tag">Problem Solving</span><span class="tag">Communication</span><span class="tag">Team Collaboration</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Selected work</div>
+            <h2 class="section-title">Projects & analysis</h2>
+            <p class="section-intro">Applied projects focused on business performance, customer behavior, churn patterns and credit default risk.</p>
+          </div>
+          <div class="section-note">Select a category to filter the projects.</div>
+        </div>
+        <div class="project-controls" role="group" aria-label="Filter projects">
+          <button class="filter-btn" data-filter="all" aria-pressed="true">All projects</button>
+          <button class="filter-btn" data-filter="business" aria-pressed="false">Business analytics</button>
+          <button class="filter-btn" data-filter="customer" aria-pressed="false">Customer analytics</button>
+          <button class="filter-btn" data-filter="risk" aria-pressed="false">Risk analytics</button>
+        </div>
+        <div class="project-grid">
+          <article class="project-card" data-category="business">
+            <div class="project-visual">
+              <div class="visual-caption">Project 01 · Business analytics</div>
+              <div class="visual-title">Business Performance Diagnosis</div>
+              <div class="visual-metrics"><span class="visual-metric">2.30M Sales</span><span class="visual-metric">286K Profit</span><span class="visual-metric">Power BI</span></div>
+              <div class="chart-decoration" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-topline"><span class="project-number">01 / 04</span><span class="project-domain">Business Analytics</span></div>
+              <h3>Business Performance Diagnosis</h3>
+              <p class="project-problem">Identify which products, regions and discount levels drive or drain profit in a retail business, and present the results in an interactive dashboard.</p>
+              <div class="tool-list"><span class="tool">Python</span><span class="tool">Pandas</span><span class="tool">Matplotlib</span><span class="tool">Seaborn</span><span class="tool">Power BI</span></div>
+              <div class="finding-box"><div class="finding-label">Key findings</div><p>Technology is the strongest category and Copiers is the most profitable sub-category. Furniture earns the least profit despite contributing about 32% of sales. Transactions with 0% discount produced the highest profit, while 70% discounts frequently resulted in losses.</p></div>
+              <p class="recommendation"><strong>Recommendation:</strong> Scale Technology and the West region, review pricing and costs in Furniture and the Central region, and audit high-tier discounting.</p>
+              <div class="project-actions">
+                <a class="text-link" href="https://github.com/rohanpatil120/Business_Performance_Diagnosis" target="_blank" rel="noopener noreferrer">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v7H4V5h7"/></svg></a>
+                <a class="text-link" href="https://github.com/rohanpatil120/Portfolio_repository/blob/main/certificates/business_daignosis_dashboard.png" target="_blank" rel="noopener noreferrer">View Dashboard <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v7H4V5h7"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="customer">
+            <div class="project-visual visual-teal">
+              <div class="visual-caption">Project 02 · Customer analytics</div>
+              <div class="visual-title">Customer Behavior Analysis</div>
+              <div class="visual-metrics"><span class="visual-metric">3.9K Customers</span><span class="visual-metric">27% Subscribers</span><span class="visual-metric">DAX</span></div>
+              <div class="chart-decoration" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-topline"><span class="project-number">02 / 04</span><span class="project-domain">Customer Analytics</span></div>
+              <h3>Customer Behavior Analysis</h3>
+              <p class="project-problem">Convert raw customer purchase data into behavioral insights through a complete analytics pipeline, from cleaning to dashboard.</p>
+              <div class="tool-list"><span class="tool">Python</span><span class="tool">Pandas</span><span class="tool">SQL</span><span class="tool">Power BI</span><span class="tool">DAX</span></div>
+              <div class="finding-box"><div class="finding-label">Key findings</div><p>The dataset covers about 3.9K customers, with an average purchase of $59.76 and an average review rating of 3.75. Clothing leads in revenue and sales volume. Only 27% of customers (1.05K) hold a subscription.</p></div>
+              <p class="recommendation"><strong>Opportunity:</strong> Investigate subscriber conversion while using category and customer behavior patterns to guide further analysis.</p>
+              <div class="project-actions">
+                <a class="text-link" href="https://github.com/rohanpatil120/customer_behavior_analysis" target="_blank" rel="noopener noreferrer">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v7H4V5h7"/></svg></a>
+                <a class="text-link" href="https://github.com/rohanpatil120/Portfolio_repository/blob/main/certificates/customer_behaviour_dashboard.png" target="_blank" rel="noopener noreferrer">View Dashboard <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v7H4V5h7"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="customer">
+            <div class="project-visual visual-violet">
+              <div class="visual-caption">Project 03 · Retention analysis</div>
+              <div class="visual-title">Customer Churn Analysis and Intelligence Framework</div>
+              <div class="visual-metrics"><span class="visual-metric">28.57% Churn</span><span class="visual-metric">SQLite</span><span class="visual-metric">Risk Segments</span></div>
+              <div class="chart-decoration" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-topline"><span class="project-number">03 / 04</span><span class="project-domain">Customer Analytics</span></div>
+              <h3>Customer Churn Analysis and Intelligence Framework</h3>
+              <p class="project-problem">Identify customer segments and behaviors associated with subscription churn, and determine where retention efforts could be focused.</p>
+              <div class="tool-list"><span class="tool">Python</span><span class="tool">SQLite</span><span class="tool">Pandas</span><span class="tool">NumPy</span><span class="tool">Matplotlib</span><span class="tool">Seaborn</span></div>
+              <div class="finding-box"><div class="finding-label">Key findings</div><p>Overall churn rate is 28.57% (retention rate 71.43%). Churn rates vary by plan: Basic 60.00%, Standard 22.22% and Premium 14.29%. Support escalations show a strong positive correlation (0.77) with churn.</p></div>
+              <p class="recommendation"><strong>Recommendation:</strong> Prioritize retention for Basic-plan customers through upgrade offers and onboarding, and improve escalation handling.</p>
+              <div class="project-actions">
+                <a class="text-link" href="https://github.com/rohanpatil120/Customer_Churn_Rate_Analysis" target="_blank" rel="noopener noreferrer">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v7H4V5h7"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="risk">
+            <div class="project-visual visual-blue">
+              <div class="visual-caption">Project 04 · Credit risk</div>
+              <div class="visual-title">Credit Default Risk Analysis</div>
+              <div class="visual-metrics"><span class="visual-metric">255,347 Loan Records</span><span class="visual-metric">11.61% Default Rate</span></div>
+              <div class="chart-decoration" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-topline"><span class="project-number">04 / 04</span><span class="project-domain">Risk Analytics</span></div>
+              <h3>Credit Default Risk Analysis</h3>
+              <p class="project-problem">Determine which borrower characteristics are associated with a higher risk of loan default using borrower and loan attributes.</p>
+              <div class="tool-list"><span class="tool">Python</span><span class="tool">Pandas</span><span class="tool">Matplotlib</span><span class="tool">Seaborn</span></div>
+              <div class="finding-box"><div class="finding-label">Key findings</div><p>The overall portfolio default rate is 11.61%. The analysis compares debt-to-income ratio (DTI), interest rate and employment type individually and in combination to identify relatively lower-risk and higher-risk borrower profiles.</p></div>
+              <p class="recommendation"><strong>Business value:</strong> Supports tighter approval criteria and risk-based pricing by borrower segment.</p>
+              <div class="project-actions">
+                <a class="text-link" href="https://github.com/rohanpatil120/credit_default_risk_analysis" target="_blank" rel="noopener noreferrer">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v7H4V5h7"/></svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="certifications">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Learning & development</div>
+            <h2 class="section-title">Certifications</h2>
+            <p class="section-intro">Coursework and job simulations related to finance, risk, data and business analytics.</p>
+          </div>
+        </div>
+        <div class="credentials-grid">
+          <article class="credential-card">
+            <h3>Finance and Risk</h3>
+            <div class="credential-item">
+              <div class="credential-name">Risk Management (Statement of Participation, 24 hours, CPD-accredited, Oct 2026)<span class="credential-issuer">The Open University (OpenLearn)</span></div>
+              <a class="credential-link" href="https://github.com/rohanpatil120/Portfolio_repository/blob/main/certificates/open_university_finance_course_certificate.pdf" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
+            </div>
+            <div class="credential-item">
+              <div class="credential-name">Finance Course<span class="credential-issuer">Saylor Academy</span></div>
+              <a class="credential-link" href="https://github.com/rohanpatil120/Portfolio_repository/blob/main/certificates/saloyr_finance_course_certificate.pdf" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
+            </div>
+          </article>
+          <article class="credential-card">
+            <h3>Job Simulations (Forage)</h3>
+            <div class="credential-item">
+              <div class="credential-name">Citi Bank Finance Job Simulation<span class="credential-issuer">Forage</span></div>
+              <a class="credential-link" href="https://github.com/rohanpatil120/Portfolio_repository/blob/main/certificates/Citi_bank_finance_job_simulation.pdf" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
+            </div>
+            <div class="credential-item">
+              <div class="credential-name">Goldman Sachs Finance Job Simulation<span class="credential-issuer">Forage</span></div>
+              <a class="credential-link" href="https://github.com/rohanpatil120/Portfolio_repository/blob/main/certificates/Goldsmans_Sachs_finance_job_simulation.pdf" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
+            </div>
+            <div class="credential-item">
+              <div class="credential-name">Tata Data Visualisation Job Simulation<span class="credential-issuer">Forage</span></div>
+              <a class="credential-link" href="https://github.com/rohanpatil120/Portfolio_repository/blob/main/certificates/Tata_data_visulization_job_simulation.pdf" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
+            </div>
+          </article>
+          <article class="credential-card">
+            <h3>Data and Business Analytics (Coursera)</h3>
+            <div class="credential-item">
+              <div class="credential-name">Databases and SQL<span class="credential-issuer">IBM · Coursera</span></div>
+              <a class="credential-link" href="https://www.coursera.org/verify/6F5DODVLGQDW" target="_blank" rel="noopener noreferrer">Verify ↗</a>
+            </div>
+            <div class="credential-item">
+              <div class="credential-name">Business Analysis and Process Management<span class="credential-issuer">Coursera</span></div>
+              <a class="credential-link" href="https://www.coursera.org/account/accomplishments/records/4YU8TFVLEX9S" target="_blank" rel="noopener noreferrer">Verify ↗</a>
+            </div>
+            <div class="credential-item">
+              <div class="credential-name">Introduction to CRM<span class="credential-issuer">Coursera</span></div>
+              <a class="credential-link" href="https://www.coursera.org/account/accomplishments/records/S2IHQZ22R6YJ" target="_blank" rel="noopener noreferrer">Verify ↗</a>
+            </div>
+          </article>
+          <article class="credential-card">
+            <h3>Professional development</h3>
+            <div class="credential-item">
+              <div class="credential-name">Risk Management, OpenLearn (The Open University). Course RM_1, 24 hours of study, issued 9 October 2026.<span class="credential-issuer">Statement of participation</span></div>
+              <a class="credential-link" href="./certificates/" target="_blank" rel="noopener noreferrer">View statement ↗</a>
+            </div>
+            <p class="credential-note">Certificate files are linked to the paths provided in the portfolio README. Keep the corresponding files in the same repository structure when publishing the site.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-inner">
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2>Let’s connect.</h2>
+          <p>I am open to Data Analyst, Business Analyst, and Financial or Risk Analyst internships and entry-level opportunities. Please feel free to connect by email or LinkedIn.</p>
+          <div class="contact-links">
+            <a href="mailto:rohanrajendrapatil2005@gmail.com">rohanrajendrapatil2005@gmail.com</a>
+            <a href="https://www.linkedin.com/in/rohan-patil-653a67307/" target="_blank" rel="noopener noreferrer">LinkedIn Profile ↗</a>
+            <a href="https://github.com/rohanpatil120" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:rohanrajendrapatil2005@gmail.com">Email Me</a>
+          <a class="btn btn-ghost" href="https://github.com/rohanpatil120" target="_blank" rel="noopener noreferrer">Explore GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Rohan Patil. Portfolio website.</span>
+      <a class="back-top" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        filterButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        projectCards.forEach(card => {
+          card.hidden = filter !== 'all' && card.dataset.category !== filter;
+        });
+      });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
