@@ -85,7 +85,7 @@ I am open to Data Analyst, Business Analyst, and Financial or Risk Analyst inter
 [View Repository](https://github.com/rohanpatil120/customer_behavior_analysis)
 
 
-[View Dashboard](https://github.com/rohanpatil120/Portfolio_repository/blob/main/certificates/customer_behaviour_dashboard.png)
+[View Dashboard](https://github.com/rohanpatil120/rohanpatil120.github.io/blob/main/certificates/customer_behaviour_dashboard.png)
 
 
 
